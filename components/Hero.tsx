@@ -79,7 +79,7 @@ export default function Hero() {
               <input
                 type="text"
                 placeholder="Jane Doe"
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                 required
               />
             </div>
@@ -91,7 +91,7 @@ export default function Hero() {
               <input
                 type="tel"
                 placeholder="(555) 000-0000"
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                 required
               />
             </div>
@@ -100,7 +100,7 @@ export default function Hero() {
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                 Select Treatment
               </label>
-              <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm bg-white">
+              <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white">
                 <option>General Checkup & Cleaning</option>
                 <option>Dental Implants</option>
                 <option>Invisalign & Braces</option>
