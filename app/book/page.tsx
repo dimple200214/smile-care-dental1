@@ -108,7 +108,7 @@ export default function BookPage() {
                       type="text"
                       required
                       placeholder="Jane Doe"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                     />
                   </div>
                   <div>
@@ -119,7 +119,7 @@ export default function BookPage() {
                       type="tel"
                       required
                       placeholder="(555) 000-0000"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                     />
                   </div>
                 </div>
@@ -132,14 +132,14 @@ export default function BookPage() {
                     <input
                       type="email"
                       placeholder="jane@example.com"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                       Select Treatment *
                     </label>
-                    <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm bg-white">
+                    <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white">
                       <option>General Checkup & Consultation</option>
                       <option>Dental Implants</option>
                       <option>Invisalign / Braces</option>
@@ -158,14 +158,14 @@ export default function BookPage() {
                     <input
                       type="date"
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                       Preferred Time Slot *
                     </label>
-                    <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm bg-white">
+                    <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white">
                       <option>Morning (9:00 AM - 12:00 PM)</option>
                       <option>Afternoon (12:00 PM - 4:00 PM)</option>
                       <option>Evening (4:00 PM - 7:00 PM)</option>
@@ -180,7 +180,7 @@ export default function BookPage() {
                   <textarea
                     rows={3}
                     placeholder="Mention any dental anxiety, ongoing medication, or specific concerns..."
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                   ></textarea>
                 </div>
 
