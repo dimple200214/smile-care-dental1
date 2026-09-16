@@ -1,14 +1,43 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle2, Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function BookPage() {
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    full_name: "",
+    phone: "",
+    email: "",
+    treatment: "General Checkup & Consultation",
+    preferred_date: "",
+    preferred_time: "Morning (9:00 AM - 12:00 PM)",
+    notes: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    const { error } = await supabase.from("appointments").insert([formData]);
+
+    setLoading(false);
+
+    if (!error) {
+      setSubmitted(true);
+    } else {
+      alert("Failed to submit appointment. Please check your Supabase setup or try again.");
+      console.error("Supabase submission error:", error);
+    }
   };
 
   return (
@@ -89,8 +118,19 @@ export default function BookPage() {
                   Thank you for booking with SmileCare. Our dental coordinator will call you shortly to confirm your slot.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 bg-slate-900 text-white font-semibold px-6 py-2.5 rounded-lg text-xs"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({
+                      full_name: "",
+                      phone: "",
+                      email: "",
+                      treatment: "General Checkup & Consultation",
+                      preferred_date: "",
+                      preferred_time: "Morning (9:00 AM - 12:00 PM)",
+                      notes: "",
+                    });
+                  }}
+                  className="mt-4 bg-slate-900 text-white font-semibold px-6 py-2.5 rounded-lg text-xs hover:bg-slate-800 transition-colors"
                 >
                   Book Another Appointment
                 </button>
@@ -106,7 +146,10 @@ export default function BookPage() {
                     </label>
                     <input
                       type="text"
+                      name="full_name"
                       required
+                      value={formData.full_name}
+                      onChange={handleChange}
                       placeholder="Jane Doe"
                       className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                     />
@@ -117,7 +160,10 @@ export default function BookPage() {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
                       required
+                      value={formData.phone}
+                      onChange={handleChange}
                       placeholder="(555) 000-0000"
                       className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                     />
@@ -131,6 +177,9 @@ export default function BookPage() {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="jane@example.com"
                       className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                     />
@@ -139,7 +188,12 @@ export default function BookPage() {
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                       Select Treatment *
                     </label>
-                    <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white">
+                    <select
+                      name="treatment"
+                      value={formData.treatment}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white"
+                    >
                       <option>General Checkup & Consultation</option>
                       <option>Dental Implants</option>
                       <option>Invisalign / Braces</option>
@@ -157,7 +211,10 @@ export default function BookPage() {
                     </label>
                     <input
                       type="date"
+                      name="preferred_date"
                       required
+                      value={formData.preferred_date}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white"
                     />
                   </div>
@@ -165,7 +222,12 @@ export default function BookPage() {
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                       Preferred Time Slot *
                     </label>
-                    <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white">
+                    <select
+                      name="preferred_time"
+                      value={formData.preferred_time}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white"
+                    >
                       <option>Morning (9:00 AM - 12:00 PM)</option>
                       <option>Afternoon (12:00 PM - 4:00 PM)</option>
                       <option>Evening (4:00 PM - 7:00 PM)</option>
@@ -179,6 +241,9 @@ export default function BookPage() {
                   </label>
                   <textarea
                     rows={3}
+                    name="notes"
+                    value={formData.notes}
+                    onChange={handleChange}
                     placeholder="Mention any dental anxiety, ongoing medication, or specific concerns..."
                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
                   ></textarea>
@@ -186,10 +251,20 @@ export default function BookPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-lg transition-all text-sm shadow-md flex items-center justify-center gap-2"
+                  disabled={loading}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-3.5 px-6 rounded-lg transition-all text-sm shadow-md flex items-center justify-center gap-2"
                 >
-                  <Calendar size={18} />
-                  <span>Confirm Priority Appointment</span>
+                  {loading ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Calendar size={18} />
+                      <span>Confirm Priority Appointment</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}
