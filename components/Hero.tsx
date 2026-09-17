@@ -18,13 +18,12 @@ export default function Hero() {
     e.preventDefault();
     setCallbackLoading(true);
 
-    // Save callback request directly into Supabase 'appointments' table
-    const { error } = await supabase.from("appointments").insert([
+    // Save callback request into 'callback_requests' table in Supabase
+    const { error } = await supabase.from("callback_requests").insert([
       {
         full_name: callbackData.full_name,
         phone: callbackData.phone,
         treatment: callbackData.treatment,
-        notes: "Quick Hero Callback Request",
       },
     ]);
 
@@ -78,7 +77,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Form Section connected to Supabase */}
+        {/* Right Form Section connected to 'callback_requests' */}
         <div className="lg:col-span-5">
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
             <h2 className="text-2xl font-bold text-slate-900">Request a Callback</h2>
