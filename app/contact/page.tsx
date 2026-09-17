@@ -19,14 +19,14 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
 
-    // Save contact inquiry into Supabase 'appointments' table
-    const { error } = await supabase.from("appointments").insert([
+    // Save inquiry into separate 'contact_messages' table in Supabase
+    const { error } = await supabase.from("contact_messages").insert([
       {
         full_name: formData.name,
         email: formData.email,
         phone: formData.phone || "N/A",
-        treatment: `Contact Inquiry: ${formData.subject}`,
-        notes: formData.message,
+        subject: formData.subject,
+        message: formData.message,
       },
     ]);
 
@@ -99,7 +99,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Main Form and Map Grid */}
+        {/* Form & Map Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           
           {/* Contact Form */}
@@ -212,10 +212,10 @@ export default function ContactPage() {
             )}
           </div>
 
-          {/* Embedded Map Section */}
+          {/* Interactive Google Map */}
           <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 h-full flex flex-col">
             <h2 className="text-xl font-bold text-slate-900 mb-4 px-4 pt-2">Find Our Clinic</h2>
-            <div className="w-full h-[400px] lg:h-full rounded-xl overflow-hidden bg-slate-100">
+            <div className="w-full h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-slate-100">
               <iframe
                 title="Clinic Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2151562584283!2d-73.9878441234241!3d40.75797473483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
