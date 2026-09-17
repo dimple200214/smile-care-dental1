@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -18,10 +19,24 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate form submission delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Save contact inquiry into Supabase 'appointments' table
+    const { error } = await supabase.from("appointments").insert([
+      {
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone || "N/A",
+        treatment: `Contact Inquiry: ${formData.subject}`,
+        notes: formData.message,
+      },
+    ]);
+
     setLoading(false);
-    setSubmitted(true);
+
+    if (error) {
+      alert("Error sending message: " + error.message);
+    } else {
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -100,7 +115,10 @@ export default function ContactPage() {
                     Thank you for reaching out. Our support team will get back to you shortly.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+                    }}
                     className="mt-4 text-sm font-medium text-green-800 underline hover:text-green-900"
                   >
                     Send another message
