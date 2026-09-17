@@ -100,10 +100,19 @@ export default function BookPage() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-slate-200 rounded-2xl h-48 border border-slate-300/80 flex items-center justify-center text-slate-500 font-medium text-sm">
-              [ Interactive Google Map Placeholder ]
-            </div>
+            {/* Interactive Google Map */}
+<div className="rounded-2xl h-52 border border-slate-200/80 overflow-hidden shadow-sm">
+  <iframe
+    title="SmileCare Dental Location"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2151562584283!2d-73.9878441234241!3d40.75797473483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen={false}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+</div>
           </div>
 
           {/* Form / Confirmation Card */}
