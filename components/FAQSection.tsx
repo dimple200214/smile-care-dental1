@@ -1,61 +1,58 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "Are dental procedures at SmileCare painless?",
-    a: "Yes. We utilize modern laser dentistry techniques and computerized local anesthesia delivery systems to ensure procedures like root canals and fillings are virtually painless."
+    question: "Is root canal treatment completely pain-free?",
+    answer: "Yes. We use micro-laser dentistry and localized computerized anesthesia, making the treatment virtually pain-free.",
   },
   {
-    q: "How much do dental implants cost?",
-    a: "Costs vary based on single-tooth replacement versus full-mouth restoration. We provide full transparent pricing up front with zero hidden fees, along with 0% interest flexible financing plans."
+    question: "How long do dental implants last?",
+    answer: "With proper oral hygiene and regular checkups, Swiss titanium implants are designed to last a lifetime.",
   },
   {
-    q: "What should I do in case of a dental emergency?",
-    a: "Call our emergency hotline directly at (555) 234-5678. We reserve daily emergency slots to handle severe toothaches, chipped teeth, or lost crowns on the same day."
+    question: "Do you accept health insurance or offer EMI?",
+    answer: "Yes, we support instant health insurance claims and offer 0% interest EMI options for all major treatments.",
   },
   {
-    q: "How long does an Invisalign treatment usually take?",
-    a: "Most Invisalign aligner treatments take between 6 to 18 months depending on complexity. You will receive custom 3D digital simulation previews before starting."
-  }
+    question: "What safety protocols are followed in the clinic?",
+    answer: "We follow German Class-B autoclave sterilization standards for every instrument to ensure 100% patient safety.",
+  },
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-20 bg-white border-t border-slate-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-8">
+    <section className="py-20 bg-slate-900 text-white border-b border-slate-800">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-12">
-          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-2">
-            Patient Hesitancy & Guidance
-          </span>
-          <h2 className="text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
+          <div className="inline-flex items-center space-x-2 bg-sky-500/10 border border-sky-500/30 text-sky-400 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-sky-400" />
+            <span>Patient Guidance</span>
+          </div>
+          <h2 className="text-3xl font-black text-white">Frequently Asked Questions</h2>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="border border-slate-200 rounded-xl overflow-hidden transition-colors"
+              className="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden transition"
             >
               <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full text-left p-5 bg-slate-50 hover:bg-slate-100 flex justify-between items-center font-bold text-slate-900 text-base transition-colors"
+                onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+                className="w-full text-left p-5 flex items-center justify-between text-sm font-bold text-white hover:text-sky-400 transition"
               >
-                <span>{faq.q}</span>
-                <ChevronDown
-                  size={18}
-                  className={`text-slate-500 transition-transform ${openIndex === idx ? "rotate-180 text-blue-600" : ""}`}
-                />
+                <span>{faq.question}</span>
+                <ChevronDown className={`w-4 h-4 text-sky-400 transition-transform duration-200 ${openIdx === idx ? "rotate-180" : ""}`} />
               </button>
-
-              {openIndex === idx && (
-                <div className="p-5 bg-white text-slate-600 text-sm leading-relaxed border-t border-slate-100">
-                  {faq.a}
+              {openIdx === idx && (
+                <div className="p-5 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-900">
+                  {faq.answer}
                 </div>
               )}
             </div>
