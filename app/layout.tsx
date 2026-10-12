@@ -1,15 +1,7 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import MobileCTA from "@/components/MobileCTA";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "SmileCare Dental & Implant Center | Painless Dental Care",
-  description: "Book consultations with top-rated board-certified dental specialists.",
-};
+import Footer from "@/components/Footer"; // Agar aapka footer component hai
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -18,10 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="bg-slate-50 text-slate-900 pb-16 md:pb-0">
         <Navbar />
-        <main>{children}</main>
-        <Footer />
+        {children}
+        <MobileCTA />
       </body>
     </html>
   );
