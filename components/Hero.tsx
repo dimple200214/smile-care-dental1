@@ -10,7 +10,6 @@ import {
   ArrowRight, 
   Star, 
   Clock, 
-  Sparkles,
   PhoneCall
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
@@ -45,45 +44,44 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-slate-900 via-navy-900 to-slate-900 text-white pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
-      {/* Subtle Background Glow Elements */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-600/15 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-brand-500/10 blur-[90px] rounded-full pointer-events-none" />
+    <section className="relative bg-slate-900 text-white pt-10 pb-20 lg:pt-16 lg:pb-24 overflow-hidden border-b border-slate-800">
+      {/* Background Accent Glows */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-sky-600/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* Left Hero Content */}
-          <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
+          {/* Left Hero Text Content */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
-            {/* Trust Pill Badge */}
-            <div className="inline-flex items-center space-x-2 bg-brand-500/10 border border-brand-500/30 px-4 py-2 rounded-full backdrop-blur-md">
-              <ShieldCheck className="w-4 h-4 text-brand-500" />
-              <span className="text-xs sm:text-sm font-medium text-brand-200">
+            {/* Trust Pill */}
+            <div className="inline-flex items-center space-x-2 bg-sky-500/10 border border-sky-500/30 px-4 py-1.5 rounded-full backdrop-blur-md">
+              <ShieldCheck className="w-4 h-4 text-sky-400" />
+              <span className="text-xs font-semibold text-sky-200">
                 NABH Accredited & Premium Dental Care Center
               </span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15]">
+            {/* Crisp Clean Headline (No text ghosting) */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
               Experience Painless, <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-200 via-brand-500 to-sky-300">
+              <span className="text-sky-400">
                 Precision Dentistry
               </span>
             </h1>
 
-            {/* Subtext */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
               From laser root canals to instant cosmetic smile makeovers—our board-certified specialists utilize 3D digital scanner technology for a fast, pain-free consultation.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
               <Link
                 href="/book"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 hover:scale-[1.02]"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-sky-600 hover:bg-sky-500 text-white font-bold px-7 py-3.5 rounded-xl transition shadow-lg shadow-sky-600/30"
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar className="w-4 h-4" />
                 <span>Book Priority Visit</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -92,69 +90,66 @@ export default function Hero() {
                 href="https://wa.me/15552345678"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-medium px-7 py-4 rounded-xl transition backdrop-blur-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-6 py-3.5 rounded-xl transition"
               >
-                <MessageSquare className="w-5 h-5 text-emerald-400" />
+                <MessageSquare className="w-4 h-4 text-emerald-400" />
                 <span>WhatsApp Specialist</span>
               </a>
             </div>
 
-            {/* Social Proof & Trust Metrics */}
-            <div className="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start text-amber-400 mb-1">
+            {/* Social Proof */}
+            <div className="pt-6 border-t border-slate-800 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-left">
+              <div>
+                <div className="flex items-center text-amber-400 mb-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    <Star key={i} className="w-3 h-3 fill-current" />
                   ))}
                 </div>
-                <p className="text-xl font-bold text-white">4.9/5</p>
-                <p className="text-xs text-slate-400">1,200+ Patient Reviews</p>
+                <p className="text-lg font-bold text-white">4.9/5</p>
+                <p className="text-[11px] text-slate-400">1,200+ Reviews</p>
               </div>
 
-              <div className="text-center lg:text-left border-l border-slate-800 pl-4">
-                <p className="text-xl font-bold text-white">15+ Yrs</p>
-                <p className="text-xs text-slate-400">Clinical Expertise</p>
+              <div className="border-l border-slate-800 pl-4">
+                <p className="text-lg font-bold text-white">15+ Yrs</p>
+                <p className="text-[11px] text-slate-400">Clinical Practice</p>
               </div>
 
-              <div className="text-center lg:text-left border-l border-slate-800 pl-4">
-                <p className="text-xl font-bold text-emerald-400">0% EMI</p>
-                <p className="text-xs text-slate-400">Flexible Payment Options</p>
+              <div className="border-l border-slate-800 pl-4">
+                <p className="text-lg font-bold text-emerald-400">0% EMI</p>
+                <p className="text-[11px] text-slate-400">Flexible Options</p>
               </div>
             </div>
 
           </div>
 
-          {/* Right Lead Capture Form Card */}
+          {/* Right Lead Capture Form */}
           <div className="lg:col-span-5">
-            <div className="bg-slate-800/90 backdrop-blur-xl p-8 rounded-3xl border border-slate-700/70 shadow-2xl relative">
+            <div className="bg-slate-800/90 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl relative">
               
-              {/* Badge */}
-              <div className="absolute -top-3.5 right-6 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full flex items-center space-x-1 shadow-md">
+              <div className="absolute -top-3.5 right-6 bg-emerald-500 text-slate-950 text-[11px] font-extrabold px-3 py-1 rounded-full flex items-center space-x-1 shadow-md">
                 <Clock className="w-3 h-3" />
                 <span>15-Min Response Time</span>
               </div>
 
-              <h2 className="text-2xl font-bold text-white flex items-center space-x-2">
-                <span>Request Urgent Callback</span>
-              </h2>
+              <h2 className="text-2xl font-bold text-white">Request Urgent Callback</h2>
               <p className="text-xs text-slate-400 mt-1 mb-6">
                 Fill in your contact details for immediate assistance from our care team.
               </p>
 
               {callbackSubmitted ? (
-                <div className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 p-6 rounded-2xl flex items-start space-x-3">
+                <div className="bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 p-6 rounded-2xl flex items-start space-x-3">
                   <CheckCircle2 className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-base text-white">Callback Scheduled!</h4>
                     <p className="text-xs text-emerald-300 mt-1">
-                      Our coordinator will reach out to <strong>{callbackData.phone}</strong> shortly.
+                      Our team will reach out to <strong>{callbackData.phone}</strong> shortly.
                     </p>
                     <button
                       onClick={() => {
                         setCallbackSubmitted(false);
                         setCallbackData({ full_name: "", phone: "", treatment: "General Checkup & Cleaning" });
                       }}
-                      className="mt-3 text-xs font-semibold text-emerald-400 underline"
+                      className="mt-3 text-xs font-semibold text-emerald-400 underline block"
                     >
                       Submit another request
                     </button>
@@ -163,7 +158,7 @@ export default function Hero() {
               ) : (
                 <form onSubmit={handleCallbackSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase mb-1">
+                    <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Full Name
                     </label>
                     <input
@@ -172,12 +167,12 @@ export default function Hero() {
                       placeholder="e.g. Rahul Sharma"
                       value={callbackData.full_name}
                       onChange={(e) => setCallbackData({ ...callbackData, full_name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-white placeholder-slate-500 text-sm transition"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 focus:outline-none focus:border-sky-500 text-white placeholder-slate-500 text-xs"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase mb-1">
+                    <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Phone Number
                     </label>
                     <input
@@ -186,18 +181,18 @@ export default function Hero() {
                       placeholder="+91 98765 43210"
                       value={callbackData.phone}
                       onChange={(e) => setCallbackData({ ...callbackData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-white placeholder-slate-500 text-sm transition"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 focus:outline-none focus:border-sky-500 text-white placeholder-slate-500 text-xs"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase mb-1">
+                    <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Select Required Treatment
                     </label>
                     <select
                       value={callbackData.treatment}
                       onChange={(e) => setCallbackData({ ...callbackData, treatment: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-white text-sm transition"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 focus:outline-none focus:border-sky-500 text-white text-xs"
                     >
                       <option value="General Checkup & Cleaning">General Checkup & Cleaning</option>
                       <option value="Teeth Whitening">Teeth Whitening & Veneers</option>
@@ -211,7 +206,7 @@ export default function Hero() {
                   <button
                     type="submit"
                     disabled={callbackLoading}
-                    className="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3.5 rounded-xl transition shadow-lg shadow-brand-600/30 disabled:opacity-50 text-sm flex items-center justify-center space-x-2"
+                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-sky-600/20 disabled:opacity-50 text-xs flex items-center justify-center space-x-2"
                   >
                     <PhoneCall className="w-4 h-4" />
                     <span>{callbackLoading ? "Submitting..." : "Get Instant Callback"}</span>

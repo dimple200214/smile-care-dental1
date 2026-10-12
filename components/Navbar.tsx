@@ -1,62 +1,86 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { Stethoscope, Phone, Clock, MapPin } from "lucide-react";
+import { Bot, MapPin, Clock, Phone, Sparkles } from "lucide-react";
+import AITriageModal from "@/components/AITriageModal";
 
 export default function Navbar() {
+  const [isAiModalOpen, setIsAiModalOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-100">
+    <>
       {/* Top Info Bar */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 sm:px-8 flex justify-between items-center">
-        <div className="flex gap-6">
-          <span className="flex items-center gap-1.5">
-            <MapPin size={14} className="text-blue-400" />
-            742 Evergreen Terrace, Suite 100
-          </span>
-          <span className="hidden md:flex items-center gap-1.5">
-            <Clock size={14} className="text-blue-400" />
-            Mon - Sat: 8:00 AM - 7:00 PM
-          </span>
-        </div>
-        <div className="flex items-center gap-2 font-semibold text-blue-400">
-          <Phone size={14} />
-          <span>Emergency: (555) 234-5678</span>
+      <div className="bg-slate-950 text-slate-400 text-xs py-2 px-4 border-b border-slate-800/80 hidden sm:block">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-6">
+            <span className="flex items-center space-x-1.5">
+              <MapPin className="w-3.5 h-3.5 text-sky-400" />
+              <span>742 Evergreen Terrace, Suite 100</span>
+            </span>
+            <span className="flex items-center space-x-1.5">
+              <Clock className="w-3.5 h-3.5 text-sky-400" />
+              <span>Mon - Sat: 8:00 AM - 7:00 PM</span>
+            </span>
+          </div>
+          <a href="tel:5552345678" className="flex items-center space-x-1.5 text-sky-400 hover:text-sky-300 font-semibold">
+            <Phone className="w-3.5 h-3.5" />
+            <span>Emergency: (555) 234-5678</span>
+          </a>
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="bg-blue-600 text-white p-2 rounded-xl shadow-md">
-            <Stethoscope size={24} />
-          </div>
-          <div>
-            <span className="text-xl font-bold tracking-tight text-slate-900 block leading-tight">
-              SmileCare
-            </span>
-            <span className="text-[10px] text-blue-600 font-bold tracking-widest uppercase block">
-              Dental & Implant Center
-            </span>
-          </div>
-        </Link>
+      {/* Main Sticky Navbar */}
+      <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-sky-600/30">
+              S
+            </div>
+            <div>
+              <span className="text-xl font-black text-white tracking-tight block">SmileCare</span>
+              <span className="text-[10px] font-bold text-sky-400 tracking-wider uppercase block -mt-1">
+                Dental & Implant Center
+              </span>
+            </div>
+          </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
-          <Link href="/" className="hover:text-blue-600 transition">Home</Link>
-          <Link href="/services" className="hover:text-blue-600 transition">Treatments</Link>
-          <Link href="/doctors" className="hover:text-blue-600 transition">Specialists</Link>
-          <Link href="/about" className="hover:text-blue-600 transition">About Us</Link>
-          <Link href="/contact" className="hover:text-blue-600 transition">Contact</Link>
+          {/* Navigation Links */}
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+            <Link href="/" className="hover:text-sky-400 transition">Home</Link>
+            <Link href="/services" className="hover:text-sky-400 transition">Services</Link>
+            <Link href="/doctors" className="hover:text-sky-400 transition">Specialists</Link>
+            <Link href="/about" className="hover:text-sky-400 transition">About Us</Link>
+            <Link href="/contact" className="hover:text-sky-400 transition">Contact</Link>
+          </nav>
+
+          {/* CTAs */}
+          <div className="flex items-center space-x-3">
+            {/* AI Triage Modal Trigger */}
+            <button
+              onClick={() => setIsAiModalOpen(true)}
+              className="inline-flex items-center space-x-2 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 px-3.5 py-2 rounded-xl text-xs font-semibold transition"
+            >
+              <Bot className="w-4 h-4 text-sky-400" />
+              <span className="hidden sm:inline">AI Symptom Checker</span>
+            </button>
+
+            {/* Priority Consultation Button */}
+            <Link
+              href="/book"
+              className="bg-sky-600 hover:bg-sky-500 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-md shadow-sky-600/30"
+            >
+              Book Visit
+            </Link>
+          </div>
+
         </div>
+      </header>
 
-        {/* Action-Oriented CTA Button */}
-        <Link
-          href="/book"
-          className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95"
-        >
-          Book Consultation
-        </Link>
-      </nav>
-    </header>
+      {/* AI Triage Modal */}
+      <AITriageModal isOpen={isAiModalOpen} onClose={() => setIsAiModalOpen(false)} />
+    </>
   );
 }
