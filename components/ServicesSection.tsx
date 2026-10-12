@@ -1,99 +1,159 @@
+"use client";
+
 import Link from "next/link";
-import { Sparkles, ArrowRight, Activity, Smile, ShieldAlert, Sparkle, HeartPulse } from "lucide-react";
+import { 
+  Sparkles, 
+  Clock, 
+  ShieldCheck, 
+  ArrowRight, 
+  CheckCircle2, 
+  Zap, 
+  Smile, 
+  Activity, 
+  Stethoscope, 
+  Award
+} from "lucide-react";
 
 const services = [
   {
-    icon: Sparkles,
-    title: "Dental Implants",
-    description: "Permanent, natural-looking tooth replacements engineered with precision titanium post technology.",
-    perk: "Lifetime Warranty Available",
-    link: "/services#implants",
+    id: "laser-root-canal",
+    title: "Painless Laser Root Canal",
+    description: "Single-sitting microscopic RCT designed to eliminate infection without discomfort or extended recovery.",
+    duration: "45 - 60 Mins",
+    highlight: "Single Visit Available",
+    icon: Zap,
+    benefits: ["99.4% Success Rate", "Microscopic Precision", "3D Digital Scanning"],
+    badge: "Most Popular",
   },
   {
-    icon: Smile,
-    title: "Invisalign & Orthodontics",
-    description: "Clear, removable aligners designed to straighten your smile discreetly without traditional metal braces.",
-    perk: "3D Digital Scanning",
-    link: "/services#invisalign",
-  },
-  {
+    id: "dental-implants",
+    title: "Keyhole Dental Implants",
+    description: "Permanent, natural-looking tooth replacement using Swiss titanium implants for lifelong durability.",
+    duration: "30 Mins Procedure",
+    highlight: "Lifetime Warranty",
     icon: Activity,
-    title: "Root Canal Therapy",
-    description: "Single-visit, virtually painless endodontic treatment designed to save infected or damaged teeth.",
-    perk: "Laser Micro-Technology",
-    link: "/services#root-canal",
+    benefits: ["Immediate Loading", "Swiss Titanium", "Natural Bite Strength"],
+    badge: "Swiss Tech",
   },
   {
-    icon: Sparkle,
-    title: "Cosmetic Veneers",
-    description: "Ultra-thin porcelain shells crafted to fix gaps, chips, and discoloration for a red-carpet smile.",
-    perk: "Custom Shade Matching",
-    link: "/services#veneers",
+    id: "invisalign",
+    title: "Clear Aligners & Invisalign",
+    description: "Virtually invisible, custom-molded aligners to straighten teeth discreetly without metal braces.",
+    duration: "12 - 18 Months",
+    highlight: "3D Smile Simulation",
+    icon: Smile,
+    benefits: ["100% Removable", "Zero Food Restrictions", "Virtually Invisible"],
+    badge: "Cosmetic Choice",
   },
   {
-    icon: HeartPulse,
-    title: "Pediatric Dentistry",
-    description: "Gentle, anxiety-free dental care designed specifically for toddlers, children, and young teens.",
-    perk: "Child-Friendly Environment",
-    link: "/services#pediatric",
+    id: "cosmetic-makeover",
+    title: "Hollywood Smile Makeover",
+    description: "Custom ultra-thin porcelain veneers and digital smile designing for a perfect, radiant smile.",
+    duration: "2 Visit Transformation",
+    highlight: "Custom Porcelain",
+    icon: Sparkles,
+    benefits: ["Stain Resistant", "Digital Mockup First", "10+ Year Durability"],
+    badge: "Premium Care",
   },
   {
-    icon: ShieldAlert,
-    title: "24/7 Emergency Care",
-    description: "Immediate relief and emergency treatment for sudden toothaches, trauma, or broken crowns.",
-    perk: "Same-Day Appointments",
-    link: "/services#emergency",
+    id: "teeth-whitening",
+    title: "3D Laser Teeth Whitening",
+    description: "Professional in-clinic whitening technology that lightens tooth enamel up to 8 shades in one session.",
+    duration: "45 Mins",
+    highlight: "Instant Results",
+    icon: Award,
+    benefits: ["Zero Enamel Damage", "Long-Lasting Brightness", "Enamel-Safe Gel"],
+    badge: "Quick Care",
+  },
+  {
+    id: "general-dentistry",
+    title: "Preventive Checkup & Cleaning",
+    description: "Comprehensive ultrasonic scaling, digital X-rays, and oral cancer screening for optimal oral health.",
+    duration: "30 Mins",
+    highlight: "Routine Maintenance",
+    icon: Stethoscope,
+    benefits: ["Plaque Removal", "Digital Oral Audit", "Fresh Breath Therapy"],
+    badge: "Essential",
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="services" className="py-20 bg-slate-50 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <span className="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-2">
-              Comprehensive Oral Health
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Specialized Treatments Designed for You
-            </h2>
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+            <span>Specialized Clinical Treatments</span>
           </div>
-          <p className="text-slate-600 text-sm sm:text-base max-w-md">
-            We utilize hospital-grade sterilization and advanced 3D imaging technology to deliver precise, pain-free treatments.
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Advanced Dental Solutions Crafted for Your Comfort
+          </h2>
+          <p className="text-slate-600 mt-4 text-base sm:text-lg">
+            We utilize hospital-grade sterilization and German micro-dental equipment to deliver pain-free treatment outcomes.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+          {services.map((service) => {
+            const IconComponent = service.icon;
             return (
               <div
-                key={index}
-                className="bg-slate-50 border border-slate-200/80 p-8 rounded-2xl hover:border-blue-500 hover:shadow-xl transition-all group flex flex-col justify-between"
+                key={service.id}
+                className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
-                  <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                    <Icon size={24} />
+                  {/* Card Header & Badge */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                      {service.badge}
+                    </span>
                   </div>
-                  <span className="text-[11px] font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200/60 inline-block mb-3">
-                    {service.perk}
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{service.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
                     {service.description}
                   </p>
+
+                  {/* Duration & Highlights */}
+                  <div className="flex items-center space-x-4 text-xs font-medium text-slate-500 mb-6 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <div className="flex items-center space-x-1.5">
+                      <Clock className="w-3.5 h-3.5 text-blue-600" />
+                      <span>{service.duration}</span>
+                    </div>
+                    <div className="flex items-center space-x-1.5 border-l border-slate-200 pl-4">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>{service.highlight}</span>
+                    </div>
+                  </div>
+
+                  {/* Key Benefits List */}
+                  <ul className="space-y-2 mb-8">
+                    {service.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-center text-xs text-slate-700 space-x-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
+                {/* Direct Action */}
                 <Link
-                  href="/book"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 pt-4 border-t border-slate-200/60"
+                  href={`/book?treatment=${encodeURIComponent(service.title)}`}
+                  className="w-full inline-flex items-center justify-center space-x-2 bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold py-3 px-4 rounded-xl transition duration-200 shadow-md"
                 >
                   <span>Book Consultation</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             );
