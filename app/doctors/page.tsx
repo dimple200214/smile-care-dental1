@@ -33,28 +33,31 @@ const specialists = [
 
 export default function DoctorsPage() {
   return (
-    <div className="bg-slate-50 min-h-screen py-12 lg:py-16">
+    <div className="bg-slate-950 text-white min-h-screen py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
         
+        {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
-          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-2">
+          <span className="text-sky-400 font-bold text-xs uppercase tracking-widest block mb-2">
             Clinical Leadership
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Our Dental Specialists
           </h1>
-          <p className="text-slate-600 text-sm sm:text-base mt-2">
+          <p className="text-slate-400 text-sm sm:text-base mt-2">
             Board-certified practitioners committed to ongoing clinical research and gentle patient care.
           </p>
         </div>
 
+        {/* Doctor Cards */}
         <div className="space-y-8">
           {specialists.map((doc, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 sm:p-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
+              className="bg-slate-900 rounded-2xl border border-slate-800 shadow-xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
             >
-              <div className="md:col-span-4 h-72 rounded-xl overflow-hidden relative bg-slate-100">
+              {/* Doctor Image */}
+              <div className="md:col-span-4 h-72 rounded-xl overflow-hidden relative bg-slate-950 border border-slate-800">
                 <img
                   src={doc.image}
                   alt={doc.name}
@@ -62,25 +65,26 @@ export default function DoctorsPage() {
                 />
               </div>
 
+              {/* Doctor Details */}
               <div className="md:col-span-8 space-y-4">
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900">{doc.name}</h3>
-                  <p className="text-blue-600 font-semibold text-sm">{doc.role}</p>
+                  <h3 className="text-2xl font-bold text-white">{doc.name}</h3>
+                  <p className="text-sky-400 font-semibold text-sm">{doc.role}</p>
                 </div>
 
-                <p className="text-slate-600 text-sm leading-relaxed">{doc.bio}</p>
+                <p className="text-slate-300 text-sm leading-relaxed">{doc.bio}</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700 pt-2 border-t border-slate-100">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300 pt-2 border-t border-slate-800">
                   <div className="flex items-center gap-2">
-                    <GraduationCap size={16} className="text-blue-600 shrink-0" />
+                    <GraduationCap size={16} className="text-sky-400 shrink-0" />
                     <span>{doc.qualification}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Award size={16} className="text-blue-600 shrink-0" />
+                    <Award size={16} className="text-sky-400 shrink-0" />
                     <span>{doc.experience}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
+                    <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
                     <span>Clinic Days: {doc.available}</span>
                   </div>
                 </div>
@@ -88,7 +92,7 @@ export default function DoctorsPage() {
                 <div className="pt-2">
                   <Link
                     href="/book"
-                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg text-xs transition-colors"
+                    className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold px-6 py-2.5 rounded-lg text-xs transition-colors shadow-md shadow-sky-600/20"
                   >
                     <Calendar size={14} />
                     <span>Book Consultation with {doc.name.split(" ")[1]}</span>

@@ -92,7 +92,7 @@ export default function ServicesSection() {
             return (
               <div
                 key={service.id}
-                className="bg-slate-900/90 rounded-3xl p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl hover:border-sky-500/50 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -111,7 +111,7 @@ export default function ServicesSection() {
                     {service.description}
                   </p>
 
-                  <div className="flex items-center space-x-4 text-xs font-medium text-slate-400 mb-6 bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+                  <div className="flex items-center space-x-4 text-xs font-medium text-slate-400 mb-6 bg-slate-950 p-3 rounded-xl border border-slate-800">
                     <div className="flex items-center space-x-1.5">
                       <Clock className="w-3.5 h-3.5 text-sky-400" />
                       <span>{service.duration}</span>
@@ -134,7 +134,7 @@ export default function ServicesSection() {
 
                 <Link
                   href={`/book?treatment=${encodeURIComponent(service.title)}`}
-                  className="w-full inline-flex items-center justify-center space-x-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold py-3 px-4 rounded-xl transition shadow-md shadow-sky-600/20"
+                  className="w-full inline-flex items-center justify-center space-x-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold py-3 px-4 rounded-xl transition shadow-md shadow-sky-600/20"
                 >
                   <span>Book Consultation</span>
                   <ArrowRight className="w-4 h-4" />

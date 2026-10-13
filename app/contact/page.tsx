@@ -40,59 +40,59 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-slate-950 text-white min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-black text-white tracking-tight sm:text-5xl">
             Get in Touch
           </h1>
-          <p className="mt-4 text-lg text-slate-600">
+          <p className="mt-4 text-base sm:text-lg text-slate-400">
             Have questions or need assistance? Reach out to our expert dental team today. We’re here to help you achieve your healthiest smile.
           </p>
         </div>
 
         {/* Contact Info Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-4">
+          <div className="bg-slate-900 p-6 rounded-2xl shadow-xl border border-slate-800 flex flex-col items-center text-center">
+            <div className="p-3 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-xl mb-4">
               <MapPin className="w-6 h-6" />
             </div>
-            <h3 className="font-semibold text-slate-900 text-lg">Our Location</h3>
-            <p className="text-sm text-slate-600 mt-1">
+            <h3 className="font-bold text-white text-lg">Our Location</h3>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
               742 Evergreen Terrace, Suite 100<br />New York, NY 10001
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-4">
+          <div className="bg-slate-900 p-6 rounded-2xl shadow-xl border border-slate-800 flex flex-col items-center text-center">
+            <div className="p-3 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-xl mb-4">
               <Phone className="w-6 h-6" />
             </div>
-            <h3 className="font-semibold text-slate-900 text-lg">Phone & Emergency</h3>
-            <p className="text-sm text-slate-600 mt-1">
+            <h3 className="font-bold text-white text-lg">Phone & Emergency</h3>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
               Main: (555) 234-5678<br />
               Emergency: 24/7 Available
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-4">
+          <div className="bg-slate-900 p-6 rounded-2xl shadow-xl border border-slate-800 flex flex-col items-center text-center">
+            <div className="p-3 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-xl mb-4">
               <Mail className="w-6 h-6" />
             </div>
-            <h3 className="font-semibold text-slate-900 text-lg">Email Us</h3>
-            <p className="text-sm text-slate-600 mt-1">
+            <h3 className="font-bold text-white text-lg">Email Us</h3>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
               care@smilecare.com<br />
               info@smilecare.com
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-4">
+          <div className="bg-slate-900 p-6 rounded-2xl shadow-xl border border-slate-800 flex flex-col items-center text-center">
+            <div className="p-3 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-xl mb-4">
               <Clock className="w-6 h-6" />
             </div>
-            <h3 className="font-semibold text-slate-900 text-lg">Working Hours</h3>
-            <p className="text-sm text-slate-600 mt-1">
+            <h3 className="font-bold text-white text-lg">Working Hours</h3>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
               Mon - Sat: 8:00 AM - 7:00 PM<br />
               Sunday: Emergency Only
             </p>
@@ -103,15 +103,15 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h2>
+          <div className="bg-slate-900 p-8 rounded-2xl shadow-xl border border-slate-800">
+            <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
 
             {submitted ? (
-              <div className="bg-green-50 border border-green-200 text-green-800 p-6 rounded-xl flex items-start space-x-3">
-                <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+              <div className="bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 p-6 rounded-xl flex items-start space-x-3">
+                <CheckCircle2 className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-lg">Message Sent Successfully!</h4>
-                  <p className="text-sm text-green-700 mt-1">
+                  <h4 className="font-bold text-white text-base">Message Sent Successfully!</h4>
+                  <p className="text-xs text-emerald-300 mt-1">
                     Thank you for reaching out. Our support team will get back to you shortly.
                   </p>
                   <button
@@ -119,7 +119,7 @@ export default function ContactPage() {
                       setSubmitted(false);
                       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
                     }}
-                    className="mt-4 text-sm font-medium text-green-800 underline hover:text-green-900"
+                    className="mt-4 text-xs font-semibold text-emerald-400 underline hover:text-emerald-300 block"
                   >
                     Send another message
                   </button>
@@ -129,7 +129,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 uppercase mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">
                       Full Name
                     </label>
                     <input
@@ -138,12 +138,12 @@ export default function ContactPage() {
                       placeholder="Jane Doe"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900 text-sm"
+                      className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-700 focus:outline-none focus:border-sky-500 text-white placeholder-slate-500 text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 uppercase mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">
                       Email Address
                     </label>
                     <input
@@ -152,14 +152,14 @@ export default function ContactPage() {
                       placeholder="jane@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900 text-sm"
+                      className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-700 focus:outline-none focus:border-sky-500 text-white placeholder-slate-500 text-sm"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 uppercase mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">
                       Phone Number
                     </label>
                     <input
@@ -167,12 +167,12 @@ export default function ContactPage() {
                       placeholder="(555) 000-0000"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900 text-sm"
+                      className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-700 focus:outline-none focus:border-sky-500 text-white placeholder-slate-500 text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 uppercase mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">
                       Subject
                     </label>
                     <input
@@ -181,13 +181,13 @@ export default function ContactPage() {
                       placeholder="General Inquiry / Feedback"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900 text-sm"
+                      className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-700 focus:outline-none focus:border-sky-500 text-white placeholder-slate-500 text-sm"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 uppercase mb-1">
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">
                     Your Message
                   </label>
                   <textarea
@@ -196,14 +196,14 @@ export default function ContactPage() {
                     placeholder="How can we help you?"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900 text-sm resize-none"
+                    className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-700 focus:outline-none focus:border-sky-500 text-white placeholder-slate-500 text-sm resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg flex items-center justify-center space-x-2 transition disabled:opacity-50"
+                  className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 rounded-lg flex items-center justify-center space-x-2 transition shadow-lg shadow-sky-600/20 disabled:opacity-50 text-sm"
                 >
                   <Send className="w-4 h-4" />
                   <span>{loading ? "Sending..." : "Send Message"}</span>
@@ -213,9 +213,9 @@ export default function ContactPage() {
           </div>
 
           {/* Interactive Google Map */}
-          <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 h-full flex flex-col">
-            <h2 className="text-xl font-bold text-slate-900 mb-4 px-4 pt-2">Find Our Clinic</h2>
-            <div className="w-full h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-slate-100">
+          <div className="bg-slate-900 p-4 rounded-2xl shadow-xl border border-slate-800 h-full flex flex-col">
+            <h2 className="text-xl font-bold text-white mb-4 px-4 pt-2">Find Our Clinic</h2>
+            <div className="w-full h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-slate-950 border border-slate-800">
               <iframe
                 title="Clinic Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2151562584283!2d-73.9878441234241!3d40.75797473483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"

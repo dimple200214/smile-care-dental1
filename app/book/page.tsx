@@ -41,18 +41,18 @@ export default function BookPage() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12 lg:py-16">
+    <div className="bg-slate-950 text-white min-h-screen py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-2">
+          <span className="text-sky-400 font-bold text-xs uppercase tracking-widest block mb-2">
             Priority Consultation
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
             Schedule Your Dental Visit
           </h1>
-          <p className="text-slate-600 text-sm sm:text-base mt-2">
+          <p className="text-slate-400 text-sm sm:text-base mt-2">
             Select your preferred treatment date and time. Our team will contact you within 15 minutes to confirm.
           </p>
         </div>
@@ -61,38 +61,38 @@ export default function BookPage() {
           
           {/* Contact Details & Operating Hours */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
-              <h3 className="text-xl font-bold text-slate-900">Clinic Information</h3>
+            <div className="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+              <h3 className="text-xl font-bold text-white">Clinic Information</h3>
               
-              <div className="space-y-4 text-sm text-slate-600">
+              <div className="space-y-4 text-sm text-slate-300">
                 <div className="flex items-start gap-3">
-                  <MapPin size={20} className="text-blue-600 shrink-0 mt-0.5" />
+                  <MapPin size={20} className="text-sky-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-slate-900 font-semibold">Location</strong>
+                    <strong className="block text-white font-semibold">Location</strong>
                     742 Evergreen Terrace, Suite 100, Cityville
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone size={20} className="text-blue-600 shrink-0 mt-0.5" />
+                  <Phone size={20} className="text-sky-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-slate-900 font-semibold">Phone Support</strong>
+                    <strong className="block text-white font-semibold">Phone Support</strong>
                     (555) 234-5678 / (555) 987-6543
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail size={20} className="text-blue-600 shrink-0 mt-0.5" />
+                  <Mail size={20} className="text-sky-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-slate-900 font-semibold">Direct Email</strong>
+                    <strong className="block text-white font-semibold">Direct Email</strong>
                     care@smilecaredental.com
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock size={20} className="text-blue-600 shrink-0 mt-0.5" />
+                  <Clock size={20} className="text-sky-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-slate-900 font-semibold">Working Hours</strong>
+                    <strong className="block text-white font-semibold">Working Hours</strong>
                     Mon - Sat: 8:00 AM - 7:00 PM<br />
                     Sunday: Emergency Appointments Only
                   </div>
@@ -101,29 +101,29 @@ export default function BookPage() {
             </div>
 
             {/* Interactive Google Map */}
-<div className="rounded-2xl h-52 border border-slate-200/80 overflow-hidden shadow-sm">
-  <iframe
-    title="SmileCare Dental Location"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2151562584283!2d-73.9878441234241!3d40.75797473483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen={false}
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-  />
-</div>
+            <div className="rounded-2xl h-52 border border-slate-800 overflow-hidden shadow-xl bg-slate-900">
+              <iframe
+                title="SmileCare Dental Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2151562584283!2d-73.9878441234241!3d40.75797473483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
 
           {/* Form / Confirmation Card */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-2xl border border-slate-200/80 shadow-md">
+          <div className="lg:col-span-7 bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-800 shadow-xl">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 bg-emerald-950/80 border border-emerald-500/50 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 size={36} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">Appointment Request Sent!</h3>
-                <p className="text-slate-600 text-sm max-w-md mx-auto">
+                <h3 className="text-2xl font-bold text-white">Appointment Request Sent!</h3>
+                <p className="text-slate-300 text-sm max-w-md mx-auto">
                   Thank you for booking with SmileCare. Our dental coordinator will call you shortly to confirm your slot.
                 </p>
                 <button
@@ -139,18 +139,18 @@ export default function BookPage() {
                       notes: "",
                     });
                   }}
-                  className="mt-4 bg-slate-900 text-white font-semibold px-6 py-2.5 rounded-lg text-xs hover:bg-slate-800 transition-colors"
+                  className="mt-4 bg-sky-600 hover:bg-sky-500 text-white font-bold px-6 py-2.5 rounded-lg text-xs transition-colors shadow-md shadow-sky-600/20"
                 >
                   Book Another Appointment
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Patient Information</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Patient Information</h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Full Name *
                     </label>
                     <input
@@ -160,11 +160,11 @@ export default function BookPage() {
                       value={formData.full_name}
                       onChange={handleChange}
                       placeholder="Jane Doe"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950 placeholder:text-slate-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Phone Number *
                     </label>
                     <input
@@ -174,14 +174,14 @@ export default function BookPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="(555) 000-0000"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950 placeholder:text-slate-500"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Email Address
                     </label>
                     <input
@@ -190,18 +190,18 @@ export default function BookPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="jane@example.com"
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950 placeholder:text-slate-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Select Treatment *
                     </label>
                     <select
                       name="treatment"
                       value={formData.treatment}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950"
                     >
                       <option>General Checkup & Consultation</option>
                       <option>Dental Implants</option>
@@ -215,7 +215,7 @@ export default function BookPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Preferred Date *
                     </label>
                     <input
@@ -224,18 +224,18 @@ export default function BookPage() {
                       required
                       value={formData.preferred_date}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Preferred Time Slot *
                     </label>
                     <select
                       name="preferred_time"
                       value={formData.preferred_time}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950"
                     >
                       <option>Morning (9:00 AM - 12:00 PM)</option>
                       <option>Afternoon (12:00 PM - 4:00 PM)</option>
@@ -245,7 +245,7 @@ export default function BookPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                     Special Notes / Medical History
                   </label>
                   <textarea
@@ -254,14 +254,14 @@ export default function BookPage() {
                     value={formData.notes}
                     onChange={handleChange}
                     placeholder="Mention any dental anxiety, ongoing medication, or specific concerns..."
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900 bg-white placeholder:text-slate-400"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950 placeholder:text-slate-500"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-3.5 px-6 rounded-lg transition-all text-sm shadow-md flex items-center justify-center gap-2"
+                  className="w-full bg-sky-600 hover:bg-sky-500 disabled:bg-sky-800 text-white font-bold py-3.5 px-6 rounded-lg transition-all text-sm shadow-lg shadow-sky-600/20 flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <>

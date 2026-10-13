@@ -84,21 +84,23 @@ const detailedServices = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-slate-50 min-h-screen py-12 lg:py-16">
+    <div className="bg-slate-950 text-white min-h-screen py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
         
+        {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
-          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-2">
+          <span className="text-sky-400 font-bold text-xs uppercase tracking-widest block mb-2">
             Clinical Procedures
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Specialized Dental Services
           </h1>
-          <p className="text-slate-600 text-sm sm:text-base mt-2">
+          <p className="text-slate-400 text-sm sm:text-base mt-2">
             Transparent pricing, advanced technology, and board-certified specialists for every treatment.
           </p>
         </div>
 
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {detailedServices.map((service) => {
             const Icon = service.icon;
@@ -106,27 +108,27 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.id}
-                className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-6 flex flex-col justify-between"
+                className="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6 flex flex-col justify-between hover:border-slate-700 transition-colors"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-xl flex items-center justify-center">
                       <Icon size={24} />
                     </div>
-                    <span className="text-xs font-bold text-slate-900 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                    <span className="text-xs font-bold text-slate-200 bg-slate-950 px-3 py-1 rounded-full border border-slate-800">
                       {service.price}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm mt-1">{service.tagline}</p>
+                    <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                    <p className="text-slate-400 text-xs sm:text-sm mt-1">{service.tagline}</p>
                   </div>
 
-                  <ul className="space-y-2 pt-2 border-t border-slate-100">
+                  <ul className="space-y-2 pt-2 border-t border-slate-800">
                     {service.details.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                        <CheckCircle size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                        <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -135,7 +137,7 @@ export default function ServicesPage() {
 
                 <Link
                   href="/book"
-                  className="w-full bg-slate-900 hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition-colors text-xs text-center flex items-center justify-center gap-2 mt-4"
+                  className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 rounded-xl transition-colors text-xs text-center flex items-center justify-center gap-2 mt-4 shadow-lg shadow-sky-600/20"
                 >
                   <span>Book This Treatment</span>
                   <ArrowRight size={14} />
