@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle2, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle2, Loader2, Bot } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
 export default function BookPage() {
@@ -45,24 +46,36 @@ export default function BookPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-sky-400 font-bold text-xs uppercase tracking-widest block mb-2">
-            Priority Consultation
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Schedule Your Dental Visit
-          </h1>
-          <p className="text-slate-400 text-sm sm:text-base mt-2">
-            Select your preferred treatment date and time. Our team will contact you within 15 minutes to confirm.
-          </p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 border-b border-slate-800 pb-8">
+          <div>
+            <span className="text-sky-400 font-bold text-xs uppercase tracking-widest block mb-1">
+              Priority Consultation
+            </span>
+            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              Schedule Your Dental Visit
+            </h1>
+            <p className="text-slate-400 text-sm sm:text-base mt-1">
+              Select your preferred treatment date and time. Our team will contact you within 15 minutes.
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center space-x-2 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 px-5 py-2.5 rounded-xl text-xs font-bold transition shrink-0"
+          >
+            <Bot className="w-4 h-4 text-sky-400" />
+            <span>Emergency Triage</span>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Contact Details & Operating Hours */}
+          {/* Clinic Information */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
-              <h3 className="text-xl font-bold text-white">Clinic Information</h3>
+              <h3 className="text-xl font-bold text-white border-l-4 border-sky-500 pl-3">
+                Clinic Information
+              </h3>
               
               <div className="space-y-4 text-sm text-slate-300">
                 <div className="flex items-start gap-3">
@@ -115,7 +128,7 @@ export default function BookPage() {
             </div>
           </div>
 
-          {/* Form / Confirmation Card */}
+          {/* Booking Form Card */}
           <div className="lg:col-span-7 bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-800 shadow-xl">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
@@ -124,7 +137,7 @@ export default function BookPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Appointment Request Sent!</h3>
                 <p className="text-slate-300 text-sm max-w-md mx-auto">
-                  Thank you for booking with SmileCare. Our dental coordinator will call you shortly to confirm your slot.
+                  Thank you for booking with SmileCare. Our coordinator will call you shortly to confirm your slot.
                 </p>
                 <button
                   onClick={() => {
@@ -146,7 +159,9 @@ export default function BookPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-2xl font-bold text-white mb-4">Patient Information</h3>
+                <h3 className="text-2xl font-bold text-white mb-4 border-l-4 border-sky-500 pl-3">
+                  Patient Information
+                </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -218,13 +233,20 @@ export default function BookPage() {
                     <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                       Preferred Date *
                     </label>
+                    {/* Dark Theme Native Calendar Input with showPicker on click */}
                     <input
                       type="date"
                       name="preferred_date"
                       required
                       value={formData.preferred_date}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950"
+                      onClick={(e) => {
+                        try {
+                          e.currentTarget.showPicker();
+                        } catch (err) {}
+                      }}
+                      min={new Date().toISOString().split("T")[0]}
+                      className="w-full px-4 py-3 rounded-lg border border-slate-700 focus:outline-none focus:border-sky-500 text-sm text-white bg-slate-950 cursor-pointer [color-scheme:dark] [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:invert"
                     />
                   </div>
                   <div>
